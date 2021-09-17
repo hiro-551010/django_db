@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-dso!+00wf0ndxbp7wezt+8@!d$gq4+b$!cf@pj#62o^^__o+cc
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -60,16 +60,28 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'techmeets-db-instace',
-        'USER': 'awsadmin',
-        'PASSWORD': 'awsadmin',
-        'HOST': 'techmeets-db-instace.c6e3wxb0xj3f.us-east-2.rds.amazonaws.com',
-        'PORT': '3306',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'techmeets-db-instace',
+#         'USER': 'awsadmin',
+#         'PASSWORD': 'awsadmin',
+#         'HOST': 'techmeets-db-instace.c6e3wxb0xj3f.us-east-2.rds.amazonaws.com',
+#         'PORT': '3306',
+#     }
+# }
+
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
 
 # DATABASES = {
 #     'default': {
