@@ -1,6 +1,4 @@
-import os
 from selenium.webdriver import Chrome, ChromeOptions
-import time
 import pandas as pd
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
@@ -8,7 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from logging import getLogger
 # Chromeを起動する関数
 def set_driver(headless_flg):
     # Chromeドライバーの読み込み
