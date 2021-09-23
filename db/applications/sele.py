@@ -7,12 +7,13 @@ from selenium import webdriver
 def set_driver(headless_flg):
     # Chromeドライバーの読み込み
     options = ChromeOptions()
-    # options.add_argument("--no-sandbox")
-    # options.add_argument("--disable-dev-shm-usage")
+    
 
     # ヘッドレスモード（画面非表示モード）の設定
     if headless_flg == True:
         options.add_argument('--headless')
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
 
     # 起動オプションの設定
     options.add_argument(
@@ -29,7 +30,7 @@ def set_driver(headless_flg):
 # main処理
 def main():
     # driverを起動
-    driver = set_driver(False)
+    driver = set_driver(True)
     driver.get('https://google.com')
     # Webサイトを開く
     driver.get("https://www.twitch.tv/")
