@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'techmeets-db-instace',
+        'NAME': 'django_db',
         'USER': 'awsadmin',
         'PASSWORD': 'awsadmin',
         'HOST': 'techmeets-db-instace.c6e3wxb0xj3f.us-east-2.rds.amazonaws.com',
